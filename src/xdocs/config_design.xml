@@ -160,10 +160,16 @@ public abstract class Plant {
             <tr>
               <td>requiredJavadocPhrase</td>
               <td>
+<<<<<<< HEAD
                 Specify the comment text pattern which qualifies a method as designed for
                 extension. Supports multi-line regex.
               </td>
               <td><a href="property_types.html#Pattern">Pattern</a></td>
+=======
+                Specify the comment text pattern which qualifies a method as designed for extension. Supports multi-line regex.
+              </td>
+              <td><a href="property_types.html#pattern">Pattern</a></td>
+>>>>>>> 3796f37... Issue #4358: add requiredJavadocPhrase to DesignForExtensionCheck
               <td><code>&quot;.*&quot;</code></td>
               <td>8.40</td>
             </tr>
