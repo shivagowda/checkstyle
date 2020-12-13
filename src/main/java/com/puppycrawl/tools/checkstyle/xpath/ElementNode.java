@@ -96,7 +96,11 @@ public class ElementNode extends AbstractNode {
     public int compareOrder(NodeInfo other) {
         int result = 0;
         if (other instanceof AbstractNode) {
+<<<<<<< HEAD
             result = Integer.compare(depth, ((AbstractNode) other).getDepth());
+=======
+            result = depth - ((AbstractNode) other).getDepth();
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
             if (result == 0) {
                 result = compareCommonAncestorChildrenOrder(this, other);
             }
@@ -124,6 +128,16 @@ public class ElementNode extends AbstractNode {
         final int index1 = ((ElementNode) child1).indexAmongSiblings;
         final int index2 = ((ElementNode) child2).indexAmongSiblings;
         return Integer.compare(index1, index2);
+    }
+
+    /**
+     * Getter method for node depth.
+     *
+     * @return depth
+     */
+    @Override
+    public int getDepth() {
+        return depth;
     }
 
     /**

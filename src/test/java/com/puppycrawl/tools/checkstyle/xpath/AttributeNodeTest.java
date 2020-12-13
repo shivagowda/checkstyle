@@ -54,7 +54,13 @@ public class AttributeNodeTest {
     @Test
     public void testGetDepth() {
         final UnsupportedOperationException exception =
+<<<<<<< HEAD
             assertThrows(UnsupportedOperationException.class, attributeNode::getDepth);
+=======
+            assertThrows(UnsupportedOperationException.class, () -> {
+                attributeNode.getDepth();
+            });
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
         assertWithMessage("Invalid exception message")
             .that(exception)
             .hasMessageThat()
@@ -83,7 +89,13 @@ public class AttributeNodeTest {
     @Test
     public void testGetChildren() {
         final UnsupportedOperationException exception =
+<<<<<<< HEAD
             assertThrows(UnsupportedOperationException.class, attributeNode::getChildren);
+=======
+            assertThrows(UnsupportedOperationException.class, () -> {
+                attributeNode.getChildren();
+            });
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
         assertWithMessage("Invalid exception message")
             .that(exception)
             .hasMessageThat()

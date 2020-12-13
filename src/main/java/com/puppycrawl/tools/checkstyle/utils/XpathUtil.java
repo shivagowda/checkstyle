@@ -22,6 +22,10 @@ package com.puppycrawl.tools.checkstyle.utils;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Arrays;
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
