@@ -55,7 +55,13 @@ public class AttributeNodeTest {
     public void testGetDepth() {
         final UnsupportedOperationException exception =
 <<<<<<< HEAD
+<<<<<<< HEAD
             assertThrows(UnsupportedOperationException.class, attributeNode::getDepth);
+=======
+            assertThrows(UnsupportedOperationException.class, () -> {
+                attributeNode.getDepth();
+            });
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
 =======
             assertThrows(UnsupportedOperationException.class, () -> {
                 attributeNode.getDepth();
@@ -90,7 +96,13 @@ public class AttributeNodeTest {
     public void testGetChildren() {
         final UnsupportedOperationException exception =
 <<<<<<< HEAD
+<<<<<<< HEAD
             assertThrows(UnsupportedOperationException.class, attributeNode::getChildren);
+=======
+            assertThrows(UnsupportedOperationException.class, () -> {
+                attributeNode.getChildren();
+            });
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
 =======
             assertThrows(UnsupportedOperationException.class, () -> {
                 attributeNode.getChildren();

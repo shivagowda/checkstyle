@@ -23,7 +23,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
 import java.util.Arrays;
 >>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
 import java.util.List;
