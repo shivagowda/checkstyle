@@ -6,7 +6,10 @@ labels: ''
 assignees: ''
 
 ---
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5981893... Issue #9114: Update github issue templates to use cli
 I have read check documentation: https://checkstyle.org/config_xxxxxx.html#NameOfAffectedCheck
 I have downloaded the latest checkstyle from: https://checkstyle.org/cmdline.html#Download_and_Run
 I have executed the cli and showed it below, as cli describes the problem better than 1,000 words
