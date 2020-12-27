@@ -25,6 +25,7 @@ import java.util.ArrayList;
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 3576d1a... Issue #5820: fix stack overflow error in ElementNode ctor
@@ -34,6 +35,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Pattern;
+=======
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+>>>>>>> 05c6809... minor: use Set in XpathUtil.TOKEN_TYPES_WITH_TEXT_ATTRIBUTE
 =======
 import java.util.List;
 import java.util.Locale;
@@ -119,6 +125,7 @@ public final class XpathUtil {
         Stream.of(
             TokenTypes.IDENT, TokenTypes.STRING_LITERAL, TokenTypes.CHAR_LITERAL,
 <<<<<<< HEAD
+<<<<<<< HEAD
             TokenTypes.NUM_LONG, TokenTypes.NUM_INT, TokenTypes.NUM_DOUBLE, TokenTypes.NUM_FLOAT,
             TokenTypes.TEXT_BLOCK_CONTENT)
         .collect(Collectors.toSet());
@@ -132,6 +139,10 @@ public final class XpathUtil {
      * This regexp is used to convert carriage return to carriage-return tag.
      */
     private static final Pattern CARRIAGE_RETURN_TO_TAG = Pattern.compile("[\r]");
+=======
+            TokenTypes.NUM_LONG, TokenTypes.NUM_INT, TokenTypes.NUM_DOUBLE, TokenTypes.NUM_FLOAT)
+        .collect(Collectors.toSet());
+>>>>>>> 05c6809... minor: use Set in XpathUtil.TOKEN_TYPES_WITH_TEXT_ATTRIBUTE
 =======
             TokenTypes.NUM_LONG, TokenTypes.NUM_INT, TokenTypes.NUM_DOUBLE, TokenTypes.NUM_FLOAT)
         .collect(Collectors.toSet());
