@@ -375,7 +375,11 @@ public final class CommonUtil {
      * Resolve the specified filename to a URI.
      *
      * @param filename name of the file
+<<<<<<< HEAD
      * @return resolved file URI
+=======
+     * @return resolved header file URI
+>>>>>>> 39abb87... minor: fix spelling in javadoc
      * @throws CheckstyleException on failure
      */
     public static URI getUriByFilename(String filename) throws CheckstyleException {
