@@ -10,7 +10,6 @@
     <version>9</version>
   </parent>
 
-  
   <groupId>com.puppycrawl.tools</groupId>
   <artifactId>checkstyle</artifactId>
   <version>8.44-SNAPSHOT</version>

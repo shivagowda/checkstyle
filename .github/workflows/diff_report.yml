@@ -102,6 +102,7 @@ jobs:
         PATCH_CONFIG_LINK: ${{ needs.parse_body.outputs.patch_config_link }}
         LINK_FROM_PR: ${{ needs.parse_body.outputs.projects_link }}
        run: |
+<<<<<<< HEAD
         LINK="${LINK_FROM_PR:-$DEFAULT_PROJECTS_LINK}"
         wget -q "$LINK" -O project.properties
         if [ -n "$NEW_MODULE_CONFIG_LINK" ]; then
@@ -114,6 +115,20 @@ jobs:
 
         if [ -n "$PATCH_CONFIG_LINK" ]; then
           wget -q "$PATCH_CONFIG_LINK" -O patch_config.xml
+=======
+        wget -q "${{needs.parse_body.outputs.projects_link}}" -O project.properties
+
+        if [ -n "${{needs.parse_body.outputs.new_module_config_link}}" ]; then
+          wget -q "${{needs.parse_body.outputs.new_module_config_link}}" -O new_module_config.xml
+        fi
+
+        if [ -n "${{needs.parse_body.outputs.config_link}}" ]; then
+          wget -q "${{needs.parse_body.outputs.config_link}}" -O diff_config.xml
+        fi
+
+        if [ -n "${{needs.parse_body.outputs.patch_config_link}}" ]; then
+          wget -q "${{needs.parse_body.outputs.patch_config_link}}" -O patch_config.xml
+>>>>>>> e937da4... minor: fix commands diff report script
         fi
         
      # fetch-depth - number of commits to fetch.
