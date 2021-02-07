@@ -78,7 +78,11 @@ blocks:
                 # until https://github.com/checkstyle/checkstyle/issues/9248
                 # - mvn -e clean install -Pno-validations
                 #    && .ci/validation.sh no-violation-test-configurate
+<<<<<<< HEAD
                 - mvn -e --no-transfer-progress clean install -Pno-validations
+=======
+                - mvn -e clean install -Pno-validations
+>>>>>>> ef081d9... infra: disable no-violation-test-configurate until #9248
                     && .ci/no-exception-test.sh openjdk14-with-checks-nonjavadoc-error
           commands:
             - sem-version java 11
