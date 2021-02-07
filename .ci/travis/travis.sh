@@ -272,6 +272,107 @@ no-error-test-sbe)
   removeFolderWithProtectedFiles simple-binary-encoding
   ;;
 
+<<<<<<< HEAD
+=======
+no-error-xwiki)
+  # non-snapshot version until https://github.com/checkstyle/checkstyle/issues/9236
+  # CS_POM_VERSION=$(mvn -e -q -Dexec.executable='echo' -Dexec.args='${project.version}' \
+  #                   --non-recursive org.codehaus.mojo:exec-maven-plugin:1.3.1:exec)
+  CS_POM_VERSION=8.39
+  echo version:$CS_POM_VERSION
+  mvn -e clean install -Pno-validations
+  mkdir -p .ci-temp/
+  cd .ci-temp/
+  git clone --depth 1 https://github.com/xwiki/xwiki-commons.git
+  cd xwiki-commons
+  # Build custom Checkstyle rules
+  mvn -e -f xwiki-commons-tools/xwiki-commons-tool-verification-resources/pom.xml \
+    install -DskipTests -Dcheckstyle.version=${CS_POM_VERSION}
+  # Validate xwiki-commons
+  mvn -e checkstyle:check@default -Dcheckstyle.version=${CS_POM_VERSION}
+  # Install various required poms and extensions
+  mvn -e install:install-file -Dfile=pom.xml -DpomFile=pom.xml
+  mvn -e install:install-file -Dfile=xwiki-commons-tools/pom.xml \
+    -DpomFile=xwiki-commons-tools/pom.xml
+  mvn -e install:install-file -Dfile=xwiki-commons-tools/xwiki-commons-tool-pom/pom.xml \
+    -DpomFile=xwiki-commons-tools/xwiki-commons-tool-pom/pom.xml
+  mvn -e install:install-file -Dfile=xwiki-commons-pom/pom.xml \
+    -DpomFile=xwiki-commons-pom/pom.xml
+  mvn -e -f xwiki-commons-tools/xwiki-commons-tool-webjar-handlers/pom.xml \
+    install -Dmaven.test.skip
+  mvn -e -f xwiki-commons-tools/xwiki-commons-tool-xar/pom.xml \
+  install -Dmaven.test.skip
+  cd ..
+  removeFolderWithProtectedFiles xwiki-commons
+  git clone --depth 1 https://github.com/xwiki/xwiki-rendering.git
+  cd xwiki-rendering
+  # Validate xwiki-rendering
+  mvn -e checkstyle:check@default -Dcheckstyle.version=${CS_POM_VERSION}
+  cd ..
+  removeFolderWithProtectedFiles xwiki-rendering
+  git clone --depth 1 https://github.com/xwiki/xwiki-platform.git
+  cd xwiki-platform
+  # Validate xwiki-platform
+  mvn -e checkstyle:check@default -Dcheckstyle.version=${CS_POM_VERSION}
+  cd ..
+  removeFolderWithProtectedFiles xwiki-platform
+  ;;
+
+verify-no-exception-configs)
+  mkdir -p .ci-temp/verify-no-exception-configs
+  working_dir=.ci-temp/verify-no-exception-configs
+  wget -q \
+    --directory-prefix $working_dir \
+    --no-clobber \
+    https://raw.githubusercontent.com/checkstyle/contribution/master/checkstyle-tester/checks-nonjavadoc-error.xml
+  wget -q \
+    --directory-prefix $working_dir \
+    --no-clobber \
+    https://raw.githubusercontent.com/checkstyle/contribution/master/checkstyle-tester/checks-only-javadoc-error.xml
+  MODULES_WITH_EXTERNAL_FILES="Filter|ImportControl"
+  xmlstarlet sel --net --template -m .//module -v "@name" \
+    -n $working_dir/checks-nonjavadoc-error.xml -n $working_dir/checks-only-javadoc-error.xml \
+    | grep -vE $MODULES_WITH_EXTERNAL_FILES | grep -v "^$" \
+    | sort | uniq | sed "s/Check$//" > $working_dir/web.txt
+  xmlstarlet sel --net --template -m .//module -v "@name" -n config/checkstyle_checks.xml \
+    | grep -vE $MODULES_WITH_EXTERNAL_FILES | grep -v "^$" \
+    | sort | uniq | sed "s/Check$//" > $working_dir/file.txt
+  DIFF_TEXT=$(diff -u $working_dir/web.txt $working_dir/file.txt | cat)
+  fail=0
+  if [[ $DIFF_TEXT != "" ]]; then
+    echo "Diff is detected."
+    if [[ $PULL_REQUEST =~ ^([0-9]+)$ ]]; then
+      LINK_PR=https://api.github.com/repos/checkstyle/checkstyle/pulls/$PULL_REQUEST
+      REGEXP="https://github.com/checkstyle/contribution/pull/"
+      PR_DESC=$(curl -s -H "Authorization: token $READ_ONLY_TOKEN" $LINK_PR \
+                  | jq '.body' | grep $REGEXP | cat )
+      echo 'PR Description grepped:'${PR_DESC:0:180}
+      if [[ -z $PR_DESC ]]; then
+        echo 'You introduce new Check'
+        diff -u $working_dir/web.txt $working_dir/file.txt | cat
+        echo 'Please create PR to repository https://github.com/checkstyle/contribution'
+        echo 'and add your new Check '
+        echo '   to file checkstyle-tester/checks-nonjavadoc-error.xml'
+        echo 'or to file checkstyle-tester/checks-only-javadoc-error.xml'
+        echo 'Place the contribution repository PR link in the description of this PR.'
+        echo 'PR for contribution repository will be merged right after this PR.'
+        fail=1;
+      fi
+    else
+      diff -u $working_dir/web.txt $working_dir/file.txt | cat
+      echo 'file config/checkstyle_checks.xml contains Check that is not present at:'
+      echo 'https://github.com/checkstyle/contribution/blob/master/checkstyle-tester/checks-nonjavadoc-error.xml'
+      echo 'https://github.com/checkstyle/contribution/blob/master/checkstyle-tester/checks-only-javadoc-error.xml'
+      echo 'Please add new Check to one of such files to let Check participate in auto testing'
+      fail=1;
+    fi
+  fi
+  removeFolderWithProtectedFiles .ci-temp/verify-no-exception-configs
+  sleep 5
+  exit $fail
+  ;;
+
+>>>>>>> db7215d... Issue #9242: Build also xwiki-rendering and xwiki-platform in the no regression travis job
 check-since-version)
   # Travis merges the PR commit into origin/master
   # This identifies the PR's original commit
