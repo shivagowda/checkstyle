@@ -64,8 +64,12 @@ public class TryHandler extends BlockParentHandler {
         final IndentLevel result;
         if (child instanceof CatchHandler
             || child instanceof FinallyHandler
+<<<<<<< HEAD
             || child instanceof NewHandler
                 && isTryBlocksResourceSpecification(child)) {
+=======
+            || child instanceof NewHandler) {
+>>>>>>> d4e4e84... Issue #9236: Resolve 'new' suggesting wrong indentation for try handler
             result = getIndent();
         }
         else {

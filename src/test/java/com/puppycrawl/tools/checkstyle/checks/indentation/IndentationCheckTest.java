@@ -2621,6 +2621,7 @@ public class IndentationCheckTest extends AbstractModuleTestSupport {
             "12:1: " + getCheckMessage(MSG_ERROR, "(", 0, 12),
             "15:1: " + getCheckMessage(MSG_CHILD_ERROR, "new", 0, 8),
             "17:1: " + getCheckMessage(MSG_ERROR, "new lparen", 0, 8),
+<<<<<<< HEAD
         };
         verifyWarns(checkConfig, getPath("InputIndentationNewHandler.java"), expected);
     }
@@ -2646,6 +2647,8 @@ public class IndentationCheckTest extends AbstractModuleTestSupport {
         final String[] expected = {
             "25:17: " + getCheckMessage(MSG_ERROR, "new", 16, 20),
             "27:13: " + getCheckMessage(MSG_ERROR, "new", 12, 20),
+=======
+>>>>>>> d4e4e84... Issue #9236: Resolve 'new' suggesting wrong indentation for try handler
         };
         verifyWarns(checkConfig, getPath("InputIndentationTryBlock.java"), expected);
     }
