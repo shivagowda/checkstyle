@@ -2779,6 +2779,7 @@ public class IndentationCheckTest extends AbstractModuleTestSupport {
     }
 
     @Test
+<<<<<<< HEAD
     public void testIndentationMethodParenthesisOnNewLine() throws Exception {
         final DefaultConfiguration checkConfig = createModuleConfig(IndentationCheck.class);
         checkConfig.addAttribute("tabWidth", "4");
@@ -2808,6 +2809,8 @@ public class IndentationCheckTest extends AbstractModuleTestSupport {
     }
 
     @Test
+=======
+>>>>>>> 18a3797... Issue #9152: Record implementing interfaces, indentation faulty
     public void testIndentationLineWrappedRecordDeclaration() throws Exception {
         final DefaultConfiguration checkConfig = createModuleConfig(IndentationCheck.class);
         checkConfig.addAttribute("tabWidth", "4");
