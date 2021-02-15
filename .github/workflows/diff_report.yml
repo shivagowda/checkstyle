@@ -16,7 +16,11 @@ env:
   AWS_REGION: us-east-2
   AWS_BUCKET_NAME: "checkstyle-diff-reports"
   DEFAULT_PROJECTS_LINK: "https://raw.githubusercontent.com/checkstyle/contribution/master/checkstyle-tester/projects-to-test-on-for-github-action.properties"
+<<<<<<< HEAD
   USER_LOGIN: ${{ github.event.issue.user.login }}
+=======
+  ISSUE_BODY: ${{github.event.issue.body}}
+>>>>>>> 49f25cb... minor: change link to file in diff report action
 
 on:
   issue_comment:
