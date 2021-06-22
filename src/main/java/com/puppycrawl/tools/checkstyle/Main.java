@@ -179,7 +179,7 @@ public final class Main {
 
         final int exitStatus;
 
-        // return error if something is wrong in arguments
+        // return error if something is wrong in arguments 
         final List<File> filesToProcess = getFilesToProcess(options);
         final List<String> messages = options.validateCli(parseResult, filesToProcess);
         final boolean hasMessages = !messages.isEmpty();
