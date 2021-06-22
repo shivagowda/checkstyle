@@ -692,7 +692,7 @@
             <id>copy-resources</id>
             <phase>pre-site</phase>
             <goals>
-              <goal>copy-resources</goal>
+              <goal>copy-resources</goal> 
             </goals>
             <configuration>
               <outputDirectory>${basedir}/target/site/dtds</outputDirectory>
