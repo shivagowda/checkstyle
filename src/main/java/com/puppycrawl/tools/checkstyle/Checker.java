@@ -63,7 +63,7 @@ import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
  */
 public class Checker extends AutomaticBean implements MessageDispatcher, RootModule {
 
-    /** Message to use when an exception occurs and should be printed as a violation. */
+    /** Message to use when an exception occurs and should be printed as a violation.  */
     public static final String EXCEPTION_MSG = "general.exception";
 
     /** Logger for Checker. */
