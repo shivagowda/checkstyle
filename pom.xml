@@ -3,7 +3,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <!-- This parent is requirements for deploy of artifacts to maven central -->
+  <!-- This parent is requirements for deploy of artifacts to maven  central. -->
   <parent>
     <groupId>org.sonatype.oss</groupId>
     <artifactId>oss-parent</artifactId>
@@ -165,13 +165,6 @@
 
   <mailingLists>
     <mailingList>
-      <name>checkstyle-announce</name>
-      <archive>https://groups.google.com/forum/#!forum/checkstyle-announce</archive>
-      <subscribe>mailto:checkstyle-announce%2Bsubscribe@googlegroups.com</subscribe>
-      <unsubscribe>mailto:checkstyle-announce%2Bunsubscribe@googlegroups.com</unsubscribe>
-      <post>privilege of admins</post>
-    </mailingList>
-    <mailingList>
       <name>checkstyle</name>
       <archive>https://groups.google.com/forum/#!forum/checkstyle</archive>
       <subscribe>mailto:checkstyle%2Bsubscribe@googlegroups.com</subscribe>
@@ -210,7 +203,7 @@
     <maven.site.plugin.version>3.9.1</maven.site.plugin.version>
     <maven.spotbugs.plugin.version>4.2.3</maven.spotbugs.plugin.version>
     <maven.pmd.plugin.version>3.14.0</maven.pmd.plugin.version>
-    <pmd.version>6.34.0</pmd.version>
+    <pmd.version>6.35.0</pmd.version>
     <maven.jacoco.plugin.version>0.8.7</maven.jacoco.plugin.version>
     <powermock.version>2.0.9</powermock.version>
     <saxon.version>10.5</saxon.version>
@@ -348,13 +341,13 @@
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.9.0</version>
+      <version>2.10.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.eclipse.jgit</groupId>
       <artifactId>org.eclipse.jgit</artifactId>
-      <version>5.11.1.202105131744-r</version>
+      <version>5.12.0.202106070339-r</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -409,7 +402,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>3.1.2</version>
+          <version>3.2.0</version>
         </plugin>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
@@ -1621,7 +1614,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.1.2</version>
       </plugin>
 
       <plugin>

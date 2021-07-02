@@ -4,21 +4,19 @@
 ////////////////////////////////////////////////////////////////////////////////
 package com.puppycrawl.tools.checkstyle.checks.arraytypestyle;
 
-/**
- * Test case for ArrayTypeStyle (Java vs C)
- * @author lkuehne
- **/
+/* Config: default
+ */
 public class InputArrayTypeStyle
 {
     private int[] javaStyle = new int[0];
-    private int cStyle[] = new int[0];
-    private int c[] = new int[0];
+    private int cStyle[] = new int[0]; // violation
+    private int c[] = new int[0]; // violation
 
     public static void mainJava(String[] aJavaStyle)
     {
     }
 
-    public static void mainC(String aCStyle[])
+    public static void mainC(String aCStyle[]) // violation
     {
         final int[] blah = new int[0];
         final boolean isOK1 = aCStyle instanceof String[];
@@ -42,18 +40,18 @@ public class InputArrayTypeStyle
             return null;
         }
 
-        public Test getOldTest()[]
+        public Test getOldTest()[] // violation
         {
             return null;
         }
 
-        public Test getOldTests()[][]
+        public Test getOldTests()[][] // violation
         {
             return null;
         }
 
         public Test[]
-            getMoreTests()[][]
+            getMoreTests()[][] // violation
         {
             return null;
         }
