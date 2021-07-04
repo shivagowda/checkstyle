@@ -9,7 +9,6 @@
     <artifactId>oss-parent</artifactId>
     <version>9</version>
   </parent>
-
   
   <groupId>com.puppycrawl.tools</groupId>
   <artifactId>checkstyle</artifactId>
